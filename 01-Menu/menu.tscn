@@ -1,0 +1,135 @@
+[gd_scene load_steps=3 format=3 uid="uid://b56usv3e0jfx6"]
+
+[ext_resource type="Script" path="res://01-Menu/menu.gd" id="1_lk0eo"]
+[ext_resource type="PackedScene" uid="uid://cvgma6cugiwhl" path="res://03-Shared/api.tscn" id="2_lu05p"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lk0eo")
+
+[node name="Panel" type="Panel" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 157.0
+
+[node name="TimeUtc" type="RichTextLabel" parent="."]
+layout_mode = 2
+offset_right = 960.0
+offset_bottom = 69.0
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+shortcut_keys_enabled = false
+
+[node name="Price" type="RichTextLabel" parent="."]
+layout_mode = 2
+offset_left = -1.0
+offset_top = 72.0
+offset_right = 959.0
+offset_bottom = 141.0
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+shortcut_keys_enabled = false
+
+[node name="Epoch" type="RichTextLabel" parent="."]
+layout_mode = 2
+offset_left = 960.0
+offset_right = 1920.0
+offset_bottom = 69.0
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+shortcut_keys_enabled = false
+
+[node name="TXsCount" type="RichTextLabel" parent="."]
+layout_mode = 2
+offset_left = 960.0
+offset_top = 80.0
+offset_right = 1920.0
+offset_bottom = 149.0
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+shortcut_keys_enabled = false
+
+[node name="Api" parent="." instance=ExtResource("2_lu05p")]
+
+[node name="StartLabels" type="Node" parent="."]
+
+[node name="ClickMe" type="RichTextLabel" parent="StartLabels"]
+offset_left = 40.0
+offset_top = 269.0
+offset_right = 198.0
+offset_bottom = 394.0
+bbcode_enabled = true
+text = "[center][b][font_size=30]DO NOT
+PRESS ME!
+⬇️"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+shortcut_keys_enabled = false
+
+[node name="Welcome" type="RichTextLabel" parent="StartLabels"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -222.5
+offset_top = -41.5
+offset_right = 222.5
+offset_bottom = 41.5
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "[center][b][font_size=60] WELCOME!"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+shortcut_keys_enabled = false
+
+[node name="PressIt" type="RichTextLabel" parent="StartLabels"]
+visible = false
+offset_left = 827.0
+offset_top = 633.0
+offset_right = 1095.0
+offset_bottom = 682.0
+bbcode_enabled = true
+text = "[center][b][font_size=35] (just press it...)"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+shortcut_keys_enabled = false
+
+[node name="LetsGo" type="RichTextLabel" parent="StartLabels"]
+visible = false
+offset_left = 640.0
+offset_top = 592.0
+offset_right = 1280.0
+offset_bottom = 730.0
+bbcode_enabled = true
+text = "[center][b][font_size=50]Say NO to CBDC's
+;)"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+shortcut_keys_enabled = false
+
+[connection signal="mouse_entered" from="StartLabels/ClickMe" to="." method="_on_click_me_mouse_entered"]

@@ -1,0 +1,47 @@
+[gd_scene load_steps=3 format=3 uid="uid://db2v172sw3or1"]
+
+[ext_resource type="Script" path="res://02-Explorer/explorer.gd" id="1_8p421"]
+[ext_resource type="PackedScene" uid="uid://cvgma6cugiwhl" path="res://03-Shared/api.tscn" id="2_23ier"]
+
+[node name="Explorer" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8p421")
+
+[node name="UserSearch" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 384.0
+offset_top = 196.0
+offset_right = 1610.0
+offset_bottom = 277.0
+theme_override_font_sizes/font_size = 20
+placeholder_text = "Search your address..."
+alignment = 1
+caret_blink = true
+caret_blink_interval = 0.5
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 391.0
+offset_top = 316.0
+offset_right = 1610.0
+offset_bottom = 963.0
+
+[node name="UserResults" type="RichTextLabel" parent="Panel"]
+layout_mode = 0
+offset_right = 1219.0
+offset_bottom = 647.0
+focus_mode = 2
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+autowrap_mode = 2
+selection_enabled = true
+drag_and_drop_selection_enabled = false
+
+[node name="Api" parent="." instance=ExtResource("2_23ier")]
+
+[connection signal="text_submitted" from="UserSearch" to="." method="_on_line_edit_text_submitted"]

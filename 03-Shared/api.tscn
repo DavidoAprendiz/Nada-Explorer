@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://cvgma6cugiwhl"]
+
+[ext_resource type="Script" path="res://03-Shared/api.gd" id="1_qydoh"]
+
+[node name="Api" type="Node2D"]
+script = ExtResource("1_qydoh")
+
+[node name="ApiPrice" type="HTTPRequest" parent="."]
+
+[node name="ApiEpoch" type="HTTPRequest" parent="."]
+
+[connection signal="request_completed" from="ApiPrice" to="." method="_on_api_price_request_completed"]
+[connection signal="request_completed" from="ApiEpoch" to="." method="_on_api_epoch_request_completed"]
